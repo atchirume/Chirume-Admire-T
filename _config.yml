@@ -1,0 +1,21 @@
+title: "Chirume Admire Tarisirayi | CV"
+description: "Official Curriculum Vitae"
+theme: minima
+
+navigation:
+  - title: "Profile"
+    url: /profile/
+  - title: "Education"
+    url: /education/
+  - title: "Work Experience"
+    url: /work/
+  - title: "Skills"
+    url: /skills/
+  - title: "Achievements"
+    url: /achievements/
+  - title: "Publications"
+    url: /publications/
+  - title: "Hobbies"
+    url: /hobbies/
+  - title: "References"
+    url: /references/
