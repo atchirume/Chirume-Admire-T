@@ -43,7 +43,11 @@ navigation:
   - title: "Hobbies"
     url: /hobbies/
   - title: "References"
-    url: /references/
+    url: /references/ 
+  - title: "Projects"
+    url: /projects/
+
+    
 <<<<<<< HEAD
 
 # Build settings (GitHub Pages)
