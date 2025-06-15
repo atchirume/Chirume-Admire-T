@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://atchirume.github.io/sitemap.xml
+
+Sitemap: https://atchirume.github.io/Chirume-Admire-T/sitemap.xml
