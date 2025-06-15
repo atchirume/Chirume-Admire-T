@@ -1,32 +1,18 @@
-<<<<<<< HEAD
-title: "Admire T. Chirume | Senior Economist & Policy Researcher"
+title: "Admire Tarisirayi. Chirume | Senior Economist & Policy Researcher"
 description: "Official professional and academic profile of Admire Tarisirayi Chirume, Senior Economist at the Reserve Bank of Zimbabwe. Specializing in macro-fiscal modeling, DSGE, policy research, and data analytics."
-
 author: "Admire T. Chirume"
 theme: minima
 markdown: kramdown
 
-baseurl: "" # for GitHub Pages default repo
+baseurl: "" # the subpath of your site, e.g. /Chirume-Admire-T
 url: "https://atchirume.github.io" # your GitHub Pages URL
 
-# SEO plugins (optional if using Jekyll plugins)
+# SEO plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Navigation Menu
-=======
-title: "Chirume Admire Tarisirayi | CV"
-description: "Official Curriculum Vitae"
-theme: minima
-markdown: kramdown
-
-# Optional but useful
-baseurl: "" # the subpath of your site, e.g. /Chirume-Admire-T
-url: "https://atchirume.github.io" # the base hostname & protocol
-
-# Navigation menu (for custom layouts)
->>>>>>> 5ba75eb (Initial commit for GitHub Pages deployment)
+# Navigation menu
 navigation:
   - title: "Profile"
     url: /profile/
@@ -43,12 +29,9 @@ navigation:
   - title: "Hobbies"
     url: /hobbies/
   - title: "References"
-    url: /references/ 
+    url: /references/
   - title: "Projects"
     url: /projects/
-
-    
-<<<<<<< HEAD
 
 # Build settings (GitHub Pages)
 exclude:
@@ -56,5 +39,3 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
-=======
->>>>>>> 5ba75eb (Initial commit for GitHub Pages deployment)
