@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <style>
+      nav {
+        background: #f2f2f2;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      nav ul li {
+        display: inline;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: #0056b3;
+        font-weight: bold;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      header, footer {
+        text-align: center;
+        margin: 20px 0;
+      }
+      main {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{{ site.title }}</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="/Chirume-Admire-T/">Home</a></li>
+        <li><a href="/Chirume-Admire-T/profile/">Profile</a></li>
+        <li><a href="/Chirume-Admire-T/education/">Education</a></li>
+        <li><a href="/Chirume-Admire-T/work/">Work Experience</a></li>
+        <li><a href="/Chirume-Admire-T/skills/">Skills</a></li>
+        <li><a href="/Chirume-Admire-T/achievements/">Achievements</a></li>
+        <li><a href="/Chirume-Admire-T/publications/">Publications</a></li>
+        <li><a href="/Chirume-Admire-T/hobbies/">Hobbies</a></li>
+        <li><a href="/Chirume-Admire-T/references/">References</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} Chirume Admire Tarisirayi</p>
+    </footer>
+  </body>
+</html>

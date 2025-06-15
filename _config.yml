@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 title: "Admire T. Chirume | Senior Economist & Policy Researcher"
 description: "Official professional and academic profile of Admire Tarisirayi Chirume, Senior Economist at the Reserve Bank of Zimbabwe. Specializing in macro-fiscal modeling, DSGE, policy research, and data analytics."
 
@@ -14,6 +15,18 @@ plugins:
   - jekyll-sitemap
 
 # Navigation Menu
+=======
+title: "Chirume Admire Tarisirayi | CV"
+description: "Official Curriculum Vitae"
+theme: minima
+markdown: kramdown
+
+# Optional but useful
+baseurl: "" # the subpath of your site, e.g. /Chirume-Admire-T
+url: "https://atchirume.github.io" # the base hostname & protocol
+
+# Navigation menu (for custom layouts)
+>>>>>>> 5ba75eb (Initial commit for GitHub Pages deployment)
 navigation:
   - title: "Profile"
     url: /profile/
@@ -31,6 +44,7 @@ navigation:
     url: /hobbies/
   - title: "References"
     url: /references/
+<<<<<<< HEAD
 
 # Build settings (GitHub Pages)
 exclude:
@@ -38,3 +52,5 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+=======
+>>>>>>> 5ba75eb (Initial commit for GitHub Pages deployment)
