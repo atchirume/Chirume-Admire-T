@@ -33,6 +33,7 @@ navigation:
   - title: "Projects"
     url: /projects/
 
+
 # Build settings (GitHub Pages)
 exclude:
   - Gemfile
