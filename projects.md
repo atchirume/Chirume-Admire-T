@@ -4,6 +4,7 @@ title: "Projects"
 permalink: /projects/
 ---
 
+
 ## Featured Projects
 
 ### 📊 Economic Impact Simulator in Python
