@@ -1,0 +1,160 @@
+
+# Connecting to the database
+```{r}
+# db_connection.R
+library(DBI)
+library(RSQLite)
+
+connect_db <- function() {
+  dbConnect(RSQLite::SQLite(), dbname = "/Users/USER/Projects 2025/Project_2025_Smart_DB.sqlite")
+}
+```
+
+```{r}
+# Connect to the actual database at launch
+con <- connect_db()
+
+```
+
+# Interactive Shiny App
+```{r}
+library(shiny)
+library(DBI)
+library(RSQLite)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(rlang)
+
+# Database connection function
+connect_db <- function() {
+  dbConnect(RSQLite::SQLite(), dbname = "/Users/USER/Projects 2025/Project_2025_Smart_DB.sqlite")
+}
+
+# Initial connection
+con <- connect_db()
+tables <- dbListTables(con)
+
+ui <- fluidPage(
+  titlePanel("📊 Smart DB Interactive Visualization Tool"),
+
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("table", "Select Table", choices = tables),
+      uiOutput("var_selectors"),
+      selectInput("plot_type", "Plot Type", choices = c(
+        "Bar Chart", "Histogram", "Pie Chart", "Boxplot", "Line Chart",
+        "Dot Chart", "Scatter Plot", "Density Plot", "QQ Plot",
+        "Violin Plot", "ECDF Plot", "Time Series Plot", "Autocorrelation Plot",
+        "Mosaic Plot"
+      )),
+      checkboxInput("interactive", "Use Interactive Plot (Plotly)", TRUE),
+      actionButton("plot_btn", "Generate Plot")
+    ),
+
+    mainPanel(
+      conditionalPanel(
+        condition = "input.interactive == true",
+        plotlyOutput("interactive_plot")
+      ),
+      conditionalPanel(
+        condition = "input.interactive == false",
+        plotOutput("static_plot")
+      )
+    )
+  )
+)
+
+server <- function(input, output, session) {
+
+  onStop(function() {
+    dbDisconnect(con)
+  })
+
+  table_data <- reactive({
+    req(input$table)
+    dbGetQuery(con, paste0("SELECT * FROM '", input$table, "' LIMIT 1000"))
+  })
+
+  output$var_selectors <- renderUI({
+    df <- table_data()
+    if (is.null(df)) return(NULL)
+
+    tagList(
+      selectInput("xvar", "X Variable", choices = names(df)),
+      selectInput("yvar", "Y Variable", choices = c("None", names(df)), selected = "None")
+    )
+  })
+
+  observeEvent(input$plot_btn, {
+    df <- table_data()
+    req(input$xvar)
+    x <- input$xvar
+    y <- if (input$yvar == "None") NULL else input$yvar
+    ptype <- input$plot_type
+
+    # Handle non-ggplot base plots separately
+    is_base_plot <- ptype %in% c("Dot Chart", "Mosaic Plot")
+
+    if (input$interactive && !is_base_plot) {
+      output$interactive_plot <- renderPlotly({
+        p <- switch(ptype,
+          "Bar Chart" = ggplot(df, aes(x = !!sym(x))) + geom_bar(),
+          "Histogram" = ggplot(df, aes(x = !!sym(x))) + geom_histogram(),
+          "Pie Chart" = {
+            df_count <- df %>% count(!!sym(x))
+            ggplot(df_count, aes(x = "", y = n, fill = !!sym(x))) +
+              geom_bar(stat = "identity", width = 1) +
+              coord_polar("y", start = 0)
+          },
+          "Boxplot" = ggplot(df, aes(x = !!sym(x), y = !!sym(y))) + geom_boxplot(),
+          "Line Chart" = ggplot(df, aes(x = !!sym(x), y = !!sym(y))) + geom_line(),
+          "Scatter Plot" = ggplot(df, aes(x = !!sym(x), y = !!sym(y))) + geom_point(),
+          "Density Plot" = ggplot(df, aes(x = !!sym(x))) + geom_density(),
+          "QQ Plot" = ggplot(df, aes(sample = !!sym(x))) + stat_qq() + stat_qq_line(),
+          "Violin Plot" = ggplot(df, aes(x = !!sym(x), y = !!sym(y))) + geom_violin(),
+          "ECDF Plot" = ggplot(df, aes(x = !!sym(x))) + stat_ecdf(),
+          "Time Series Plot" = ggplot(df, aes(x = !!sym(x), y = !!sym(y))) + geom_line(),
+          "Autocorrelation Plot" = {
+            if (!is.numeric(df[[x]])) return(NULL)
+            acf_obj <- acf(df[[x]], plot = FALSE)
+            acf_df <- data.frame(lag = acf_obj$lag, acf = acf_obj$acf)
+            ggplot(acf_df, aes(x = lag, y = acf)) + geom_col()
+          },
+          NULL
+        )
+        if (!is.null(p)) ggplotly(p)
+      })
+    } else {
+      output$static_plot <- renderPlot({
+        if (ptype == "Dot Chart") {
+          dotchart(df[[x]])
+        } else if (ptype == "Mosaic Plot") {
+          req(y)
+          tbl <- table(df[[x]], df[[y]])
+          mosaicplot(tbl, main = "Mosaic Plot")
+        } else if (ptype == "Bar Chart") {
+          barplot(table(df[[x]]))
+        } else if (ptype == "Histogram") {
+          hist(df[[x]])
+        } else if (ptype == "Boxplot") {
+          boxplot(df[[y]] ~ df[[x]])
+        } else if (ptype == "Line Chart") {
+          plot(df[[x]], df[[y]], type = "l")
+        } else if (ptype == "Scatter Plot") {
+          plot(df[[x]], df[[y]])
+        } else if (ptype == "Density Plot") {
+          plot(density(df[[x]], na.rm = TRUE))
+        } else if (ptype == "ECDF Plot") {
+          plot(ecdf(df[[x]]))
+        }
+      })
+    }
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+
+```
+

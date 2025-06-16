@@ -1,0 +1,139 @@
+
+
+
+
+```{r}
+library(shiny)
+library(DBI)
+library(RSQLite)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+# Connect to your SQLite database
+connect_db <- function() {
+  dbConnect(RSQLite::SQLite(), dbname = "/Users/USER/Projects 2025/Project_2025_Smart_DB.sqlite")
+}
+con <- connect_db()
+
+# Define the list of plots
+plot_choices <- c(
+  "Bar Chart", "Histogram", "Pie Chart", "Boxplot", "Line Chart",
+  "Dot Chart", "Scatter Plot", "Density Plot", "QQ Plot",
+  "Violin Plot", "ECDF Plot", "Time Series Plot", "Autocorrelation Plot"
+)
+
+ui <- fluidPage(
+  titlePanel("📊 Multi-Plot Interactive Dashboard"),
+
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("table", "Select Table", choices = dbListTables(con)),
+
+      # Plot Panels Control
+      numericInput("nplots", "Number of Plots", value = 2, min = 1, max = 6),
+      actionButton("refresh_btn", "Refresh Plots")
+    ),
+
+    mainPanel(
+      uiOutput("multi_plot_ui")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  table_data <- reactive({
+    req(input$table)
+    dbReadTable(con, input$table)
+  })
+
+  plot_params <- reactive({
+    req(input$nplots)
+    lapply(seq_len(input$nplots), function(i) {
+      list(
+        x = input[[paste0("xvar", i)]],
+        y = input[[paste0("yvar", i)]],
+        type = input[[paste0("plot_type", i)]]
+      )
+    })
+  })
+
+  observeEvent(input$table, {
+    updateNumericInput(session, "nplots", value = 2)
+  })
+
+  output$multi_plot_ui <- renderUI({
+    df <- table_data()
+    req(df)
+
+    plots <- lapply(seq_len(input$nplots), function(i) {
+      box_id <- paste0("plotbox", i)
+      plot_id <- paste0("plot", i)
+
+      tagList(
+        wellPanel(
+          h4(paste("Plot", i)),
+          selectInput(paste0("plot_type", i), "Plot Type", choices = plot_choices),
+          selectInput(paste0("xvar", i), "X Variable", choices = names(df)),
+          selectInput(paste0("yvar", i), "Y Variable", choices = c("None", names(df)), selected = "None"),
+          plotlyOutput(plot_id)
+        )
+      )
+    })
+    do.call(tagList, plots)
+  })
+
+  observeEvent(input$refresh_btn, {
+    df <- table_data()
+    req(df)
+
+    for (i in seq_len(input$nplots)) {
+      local({
+        idx <- i
+        output[[paste0("plot", idx)]] <- renderPlotly({
+          ptype <- input[[paste0("plot_type", idx)]]
+          x <- input[[paste0("xvar", idx)]]
+          y <- input[[paste0("yvar", idx)]]
+          y <- if (y == "None") NULL else y
+
+          p <- switch(ptype,
+            "Bar Chart" = ggplot(df, aes_string(x)) + geom_bar(),
+            "Histogram" = ggplot(df, aes_string(x)) + geom_histogram(),
+            "Pie Chart" = {
+              pie_df <- df %>% count(!!sym(x))
+              ggplot(pie_df, aes(x = "", y = n, fill = !!sym(x))) +
+                geom_bar(stat = "identity", width = 1) +
+                coord_polar("y")
+            },
+            "Boxplot" = ggplot(df, aes_string(x = x, y = y)) + geom_boxplot(),
+            "Line Chart" = ggplot(df, aes_string(x = x, y = y)) + geom_line(),
+            "Dot Chart" = {
+              validate(need(is.numeric(df[[x]]), "Dot chart requires numeric X"))
+              ggplot(df, aes_string(x = x)) + geom_point()
+            },
+            "Scatter Plot" = ggplot(df, aes_string(x = x, y = y)) + geom_point(),
+            "Density Plot" = ggplot(df, aes_string(x)) + geom_density(),
+            "QQ Plot" = ggplot(df, aes_string(sample = x)) + stat_qq() + stat_qq_line(),
+            "Violin Plot" = ggplot(df, aes_string(x = x, y = y)) + geom_violin(),
+            "ECDF Plot" = ggplot(df, aes_string(x)) + stat_ecdf(),
+            "Time Series Plot" = ggplot(df, aes_string(x = x, y = y)) + geom_line(),
+            "Autocorrelation Plot" = {
+              validate(need(is.numeric(df[[x]]), "ACF requires numeric X"))
+              acf_obj <- acf(df[[x]], plot = FALSE)
+              acf_df <- data.frame(lag = acf_obj$lag, acf = acf_obj$acf)
+              ggplot(acf_df, aes(x = lag, y = acf)) + geom_col()
+            },
+            ggplot(df, aes_string(x = x)) + geom_bar()
+          )
+
+          ggplotly(p)
+        })
+      })
+    }
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+```
+
