@@ -30,4 +30,5 @@ Tarisirayi Admire Chirume, Edgar Muhoyi, Shylet Mufandaedza Masunda,  and Irene 
 Chirume Admire Tarisirayi, 2025-03-25
 
 -Implications of Deteriorating US-South Africa Relations on Zimbabwe's Economy, 2025: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5153573
+
 -Financing the Social Sector in Zimbabwe’s Post-Mugabe Era—Obstacles and Opportunities, 2023:Smart Manda and Admire Tarisirayi Chirume; https://link.springer.com/chapter/10.1007/978-3-031-30129-2_12. 
