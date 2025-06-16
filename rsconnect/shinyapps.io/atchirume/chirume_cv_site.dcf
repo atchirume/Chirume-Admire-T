@@ -1,0 +1,10 @@
+name: chirume_cv_site
+title:
+username: atchirume
+account: atchirume
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14943927
+bundleId: 10466497
+url: https://atchirume.shinyapps.io/chirume_cv_site/
+version: 1
