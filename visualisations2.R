@@ -1,14 +1,4 @@
 
----
-title: "My Dashboard"
-output: 
-  flexdashboard::flex_dashboard:
-    orientation: rows
-    runtime: shiny
----
-
-
-```{r}
 library(shiny)
 library(DBI)
 library(RSQLite)
@@ -215,5 +205,4 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 
 
-```
 
