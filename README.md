@@ -46,11 +46,15 @@ This project presents a comprehensive synthetic macroeconomic database simulatin
 
 4. View outputs in the /assets or your defined SQLite directory.
 
-   📬 Contact
-Admire Chirume
-📧 Email: chirume.admire@gmail.com
-🔗 GitHub: atchirume
-🌐 Website: Chirume-Admire-T GitHub Pages
+📬 Contact
+Name: Admire Chirume
+
+Email: chirume.admire@gmail.com
+
+GitHub: @atchirume
+
+Portfolio: Chirume-Admire-T GitHub Pages
+
 
 📄 License
 This project is open-source and available under the MIT License.
