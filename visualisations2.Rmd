@@ -1,10 +1,11 @@
 
 ---
-title: "Interactive Visualisations"
-runtime: shiny
-output: html_document
+title: "My Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    runtime: shiny
 ---
-
 
 
 ```{r}
