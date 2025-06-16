@@ -24,9 +24,10 @@ Tarisirayi Admire Chirume, Edgar Muhoyi, Shylet Mufandaedza Masunda,  and Irene 
 
 - *Uncovered Interest Parity (UIP) in a Dollarized Economy: The Case of Zimbabwe*-2025. This has been submitted and is under review: Journal of Mathematical Finance (JMF), Paper ID: 1491175
 
-- *Informalization, Money Laundering, and Exchange Rate Stability in Zimbabwe: A Review of Literature*- Co-athoured with Takudzwa Moses Dzingayi-Tembo and Kelly Tinotenda Mupawaenda -2025. This has been submitted and is under review: American Journal of Industrial and Business Management (AJIBM), ID: 2123679.
+- *Informalization, Money Laundering, and Exchange Rate Stability in Zimbabwe: A Review of Literature*- Co-authored with Takudzwa Moses Dzingayi-Tembo and Kelly Tinotenda Mupawaenda -2025. This has been submitted and is under review: American Journal of Industrial and Business Management (AJIBM), ID: 2123679.
 
 - Estimating Potential Output and Output Gap in Zimbabwe: A Structural Production Function Approach
 Chirume Admire Tarisirayi, 2025-03-25
 
 -Implications of Deteriorating US-South Africa Relations on Zimbabwe's Economy, 2025: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5153573
+-Financing the Social Sector in Zimbabwe’s Post-Mugabe Era—Obstacles and Opportunities, 2023:Smart Manda and Admire Tarisirayi Chirume; https://link.springer.com/chapter/10.1007/978-3-031-30129-2_12. 
