@@ -1,6 +1,6 @@
 # 📊 Synthetic Macroeconomic Database for Zimbabwe (2000–2025)
 
-This project presents a comprehensive synthetic macroeconomic database simulating Zimbabwe’s economy over the period 2000–2025. Developed using R and SQLite, the database integrates monetary, trade, fiscal, inflation, and capital market data for modeling, teaching, or policy analysis purposes.
+This project presents a comprehensive synthetic macroeconomic database simulating Zimbabwe’s economy over the period 2000–2025. Developed using R and SQLite, the database integrates monetary, external, fiscal, inflation, and capital market data for modeling, teaching, or policy analysis purposes.
 
 ---
 
