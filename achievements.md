@@ -6,7 +6,7 @@ permalink: /achievements/
 
 ## KEY ACHIEVEMENTS
 
-- Pioneered, coordinated, and led the development of automated data pipelines, a Macroeconomic Statistics Database, and a Consumer Price Survey (CPS) data processing and analytical framework at ZIMSTAT, substantially improving data processing efficiency, reducing turnaround times, and strengthening the timeliness of official statistics.
+- Pioneered, coordinated, and led the development of automated data pipelines, a Macroeconomic Statistics Database, and a Consumer Price Survey (CPS) post-harvest data monitoring and control system; and data processing and analytical framework at ZIMSTAT, substantially improving data processing efficiency, reducing turnaround times, and strengthening the timeliness of official statistics.
 - Designed and implemented an Augmented Inflation Nowcasting and Forecasting System in Python, integrating machine learning, PCA-based factor models, and high-frequency indicators to improve inflation prediction accuracy and policy responsiveness.
 Live application: https://factor-augmented-inflation-nowcasting-and-forecasting.streamlit.app/
 - Successfully led the **development of an Integrated Macroeconomic Database and Automated Modelling Framework**(February 2025).  
