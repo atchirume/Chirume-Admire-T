@@ -8,7 +8,7 @@ permalink: /education/
 
 **Durban University of Technology, South Africa** 
 
-- PhD in Economics (Expected August 2025)  
+- PhD in Economics (Expected August 2026)  
   *Thesis: Trade Openness Impact on Economic Growth in SADC: Productivity, Factor Endowment Structure, and Economic Complexity Analysis*  
 
 **Chinhoyi University of Technology**
