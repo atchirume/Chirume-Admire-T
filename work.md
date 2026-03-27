@@ -6,6 +6,16 @@ permalink: /work/
 
 ## WORK EXPERIENCE
 
+## WORK EXPERIENCE
+
+**ZIMSTAT (Zimbabwe National Statistics Agency)**  
+**Director – Macroeconomic Statistics (01 August 2025 – Present)**  
+- Leads the Macroeconomic Statistics Division, overseeing price statistics, labour statistics, national accounts, and Finnce and balance of payments statistics.  
+- Provides strategic leadership in the production, integration, and dissemination of official macroeconomic statistics to support national policy formulation and economic planning.  
+- Pioneered and coordinated the development of **automated data pipelines**, a **Macroeconomic Statistics Database**, and a **Consumer Price Survey (CPS) data processing and analytical framework**, significantly reducing data turnaround times and improving statistical efficiency.  
+- Driving the modernization of statistical systems through the adoption of **data science, machine learning, and advanced econometric techniques**.  
+- Leads stakeholder engagement with key institutions including Government, the :contentReference[oaicite:0]{index=0}, World Bank, and other international partners on statistical development and data quality initiatives.  
+
  **Reserve Bank of Zimbabwe**  
 **Senior Economist – External Accounts and Balance of Payments Statistics and Analysis (April 2024 – Present)**  
 - Directly manages a team of 10 Economists and Analysts in the development of macroeconomic models for GDP forecasting, inflation analysis, and monetary policy assessments.  
