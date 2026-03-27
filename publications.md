@@ -32,3 +32,5 @@ Chirume Admire Tarisirayi, 2025-03-25
 -Implications of Deteriorating US-South Africa Relations on Zimbabwe's Economy, 2025: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5153573
 
 -Financing the Social Sector in Zimbabwe’s Post-Mugabe Era—Obstacles and Opportunities, 2023:Smart Manda and Admire Tarisirayi Chirume; https://link.springer.com/chapter/10.1007/978-3-031-30129-2_12. 
+
+- Climate Change Shocks and Monetary Policy in South Africa: A Simulation-based Analysis (https://www.resbank.co.za/content/dam/sarb/publications/working-papers/2025/climate-change-shocks-and-monetary-policy-in-south-africa-a-simulation-based-analysis.pdf)
