@@ -5,7 +5,8 @@ permalink: /achievements/
 ---
 
 ## KEY ACHIEVEMENTS
-
+- Designed and developed a **Financial Risk Surveillance Platform for Banks and Financial Intelligence Units (FIUs)**, integrating supervised machine learning, anomaly detection, rule-based AML frameworks, network (graph) analytics, and trade-based money laundering (TBML) indicators into a unified risk scoring and alert prioritisation system. The platform features a capacity-based alerting mechanism, analyst dashboard, entity-level drill-down, and exportable intelligence outputs, providing a scalable and institution-ready solution for financial crime detection and risk-based supervision.  
+  **Live application:** [Financial Risk Surveillance Platform](https://atchirume-financial-risk-surveillance-app-app-ahps0r.streamlit.app/)
 - Pioneered, coordinated, and led the development of automated data pipelines, a Macroeconomic Statistics Database, and a Consumer Price Survey (CPS) post-harvest data monitoring and control system; and data processing and analytical framework at ZIMSTAT, substantially improving data processing efficiency, reducing turnaround times, and strengthening the timeliness of official statistics.
 - Designed and implemented an Augmented Inflation Nowcasting and Forecasting System in Python, integrating machine learning, PCA-based factor models, and high-frequency indicators to improve inflation prediction accuracy and policy responsiveness.
 Live application: https://factor-augmented-inflation-nowcasting-and-forecasting.streamlit.app/
